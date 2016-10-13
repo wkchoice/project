@@ -22,8 +22,12 @@ public class OracleCOnnectionEx1 {
 		//결과집합 처리
 		while (rs.next()) {
 			//결과 행에 대한 처리
+			String emp_id = rs.getString(1);
+			String f_name = rs.getString(2);
+			String l_name = rs.getString(3);
 //			System.out.println(rs.getString(1)+", "+rs.getString(2)+", "+rs.getString(3));
-			System.out.println(rs.getString("employee_id")+", "+rs.getString("first_name")+", "+rs.getString("last_name")); // column 이름을 직접 사용.
+//			System.out.println(rs.getString("employee_id")+", "+rs.getString("first_name")+", "+rs.getString("last_name")); // column 이름을 직접 사용.
+			System.out.println(emp_id+", "+f_name+", "+l_name); // column 이름을 직접 사용.
 		}
 		
 		rs.close();
