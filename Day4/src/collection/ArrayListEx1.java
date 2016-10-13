@@ -10,10 +10,12 @@ import collection.entity.Student;
 
 public class ArrayListEx1 {
 	public static void main(String[] args) {
+		
+		// select different 6 kind of numbers from 1 to 45
 		TreeSet<Integer> lotto = new TreeSet<Integer>();
 			
 		while (lotto.size() < 6) {
-			System.out.println(lotto.add((int)(Math.random()*45)+1));
+			lotto.add((int)(Math.random()*45)+1);
 		}
 
 		System.out.println(lotto);
