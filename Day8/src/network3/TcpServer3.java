@@ -40,8 +40,7 @@ package network3;
 	            try {
 	                socket = serverSocket.accept();
 	 
-	                bufferedReader = new BufferedReader(new InputStreamReader(
-	                        socket.getInputStream()));
+	                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	 
 	                String str = bufferedReader.readLine();
 	                System.out.println("Client로 부터 받은 메세지 : " + str);
