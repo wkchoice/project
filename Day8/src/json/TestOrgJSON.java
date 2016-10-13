@@ -15,6 +15,7 @@ public class TestOrgJSON {
 		test5();
 		test6();
 		test7();
+		
 	}
 	
 	public static void test1() throws JSONException {
