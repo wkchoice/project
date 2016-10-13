@@ -1,51 +1,63 @@
 package collection;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+import collection.entity.Student;
+
 //import generic.Displayable;
 
 public class ArrayListEx1 {
+	public static void main(String[] args) {
+		TreeSet<Integer> lotto = new TreeSet<Integer>();
+			
+		while (lotto.size() < 6) {
+			System.out.println(lotto.add((int)(Math.random()*45)+1));
+		}
 
+		System.out.println(lotto);
+		
+	}
 }
+
+//private ArrayList<Student> list = new ArrayList<Student>();
+//// 추가
+//public void add(Student s) {
+//	list.add(s);
+//}
 //
-//class Student implements Displayable {
-//	private String studentNo;
-//	private String name;
-//	private int    age;
-//	
-//	public Student(String studentNo, String name, int age) {
-//		super();
-//		this.studentNo = studentNo;
-//		this.name = name;
-//		this.age = age;
+//// 수정
+//public void edit(Student s) {
+//	Student stu = get(s.getStudentNo());
+//	if (stu != null) {
+//		stu.setName(s.getName());
+//		stu.setAge(s.getAge());
 //	}
+//	else
+//		System.out.println("찾을수 없음");
+//}
 //
-//	public void displayInfo() {
-//		System.out.println("학번 :"+studentNo);
-//		System.out.println("이름 :"+name);
-//		System.out.println("나이 :"+age);
-//		System.out.println();
-//	}
+//// 삭제
+//public void remove(String studentNo) {
+//	Student s = get(studentNo);
+//	if (s != null)
+//		list.remove(s);
+//	else
+//		System.out.println("찾을 수 없음.");
+//}
 //
-//	public String getStudentNo() {
-//		return studentNo;
+//// 객체 하나 조회
+//public Student get(String studentNo) {
+//	for (Student s : list) {
+//		if (s.getStudentNo().equals(studentNo)) {
+//			return s;
+//		}
 //	}
+//	 return null;
+//}
 //
-//	public void setStudentNo(String studentNo) {
-//		this.studentNo = studentNo;
-//	}
-//
-//	public String getName() {
-//		return name;
-//	}
-//
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-//
-//	public int getAge() {
-//		return age;
-//	}
-//
-//	public void setAge(int age) {
-//		this.age = age;
-//	}
+//// 객체 전체 조회
+//public List<Student> getAll() { // interface이용
+//	return list;
 //}
