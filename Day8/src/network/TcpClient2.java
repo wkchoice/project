@@ -7,10 +7,10 @@ package network;
 public class TcpClient2 {
 	 public static void main(String[] args) throws Exception {
 	  Student2 stud = new Student2("홍길동", "대한민국");
-	  Socket s = new Socket("127.0.0.1", 5555);
+	  Socket socket = new Socket("127.0.0.1", 5555);
 
-	  ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
-	  ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
+	  ObjectOutputStream oos = new ObjectOutputStream(socket.getOutputStream());
+	  ObjectInputStream ois = new ObjectInputStream(socket.getInputStream());
 
 	  System.out.println(">> 서버로 다음 데이터를 보냅니다.");
 	  System.out.println(stud);

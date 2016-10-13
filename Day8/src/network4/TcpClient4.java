@@ -9,20 +9,17 @@ package network4;
 	 
 	public class TcpClient4 {
 	    public static void main(String[] args) {
-	    	
-	        Socket socket = null;
+	    	Socket socket= null;
 	 
 	        BufferedReader bufferedReader = null;
 	        BufferedReader bufferedReaderFromServer = null;
 	        PrintWriter printWriter = null;
 	        try {
-	            socket = new Socket("127.0.0.1", 1818);
-	            bufferedReader = new BufferedReader(
-	                    new InputStreamReader(System.in));
+	        	socket = new Socket("127.0.0.1", 1818);
+	            bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 	 
 	            printWriter = new PrintWriter(socket.getOutputStream());
-	            bufferedReaderFromServer = new BufferedReader(
-	                    new InputStreamReader(socket.getInputStream()));
+	            bufferedReaderFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	 
 	            while(true){
 	                System.out.print("메세지를 입력하시오 : ");
@@ -57,6 +54,7 @@ package network4;
 	                    e.printStackTrace();
 	                }
 	            }
+	            
 	            if (bufferedReaderFromServer != null) {
 	                try {
 	                    bufferedReaderFromServer.close();
@@ -65,9 +63,11 @@ package network4;
 	                    e.printStackTrace();
 	                }
 	            }
+	            
 	            if (printWriter != null) {
 	                printWriter.close();
 	            }
+	            
 	            if (socket != null) {
 	                try {
 	                    socket.close();
