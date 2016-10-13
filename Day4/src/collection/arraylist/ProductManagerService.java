@@ -7,7 +7,6 @@ public class ProductManagerService {
 	
 	public ProductManagerService() {
 	}
-
 	
 	private boolean isNUll(Object obj) {
 		boolean isNull = false;
