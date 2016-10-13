@@ -6,6 +6,15 @@ public class Info1 {
 	// http://stellan.tistory.com/category/Java%20Programing/Java%20기초
 	// http://stellan.tistory.com/trackback/82
 	
+//	Java Source File의 코드 순서
+//
+//	1. package선언 
+//	2. improt구문
+//	3. class 선언 및 구현 - file 하나에 class 여러개는 가능하지만 public class는 하나만 가능
+//
+//	class안에서 constructor, mothod, attribute 순서는 상관 없음. 
+//	- 관례적으로 attribute, constructor, mothod 순으로 함.
+	
 //	입력 Class들
 //
 //	InputStream
