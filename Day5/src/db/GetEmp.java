@@ -1,10 +1,24 @@
 package db;
 
 import java.sql.*;
+import java.text.DecimalFormat;
+import java.util.Formatter;
 
 public class GetEmp {
 
-	public static void main(String[] args) 	{         
+	public static void main(String[] args) 	{   
+		DecimalFormat df = new DecimalFormat("#00.00#");
+		double d = 3.4;
+		String dStr = df.format(d);
+		System.out.println(dStr);
+		
+        Formatter formatter = new Formatter();
+        formatter.format("%.3f", 123.45679);
+        String str = formatter.toString();
+        
+        System.out.println(str); //123.457
+        
+		
 		String DB_URL = "jdbc:oracle:thin:@127.0.0.1:1521:XE";         
 		String DB_USER = "hr";         
 		String DB_PASSWORD = "1234";         
