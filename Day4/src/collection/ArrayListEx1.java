@@ -18,7 +18,7 @@ public class ArrayListEx1 {
 			lotto.add((int)(Math.random()*45)+1);
 		}
 
-		System.out.println(lotto);
+		System.out.println("이번 주 lotto 당첨 번호는 : "+lotto);
 		
 	}
 }
