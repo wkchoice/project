@@ -1,1 +1,50 @@
-안녕하세요?
+Singleton design pattern
+- 오직 하나의 객체만 생성할 수 있는 class
+
+Singleton design pattern으로 정의 하는 class의 종류
+- 일하는 객체( Business Service )를 생성하는 class
+
+SingletonClass의 UML 표기
+
+
+
+방법 1. 
+ 
+public class SingletonClass {
+    // 프로그램 수행시 SingletonClass객체를 미리 생성
+    // 단점 : 사용하기 전에 미리 생성하므로 메모리를 잡아 먹음
+    private static SingletonClass instance = new SingletonClass();
+    private SingletonClass() {
+    }
+    public static SingletonClass getInstance() {
+        return instance;
+    }
+}
+ 
+
+방법 2. 
+public class SingletonClass {
+    // 프로그램 수행시 SingletonClass객체를 미리 생성
+    // 장점 : 사용하는 시점에 객체를 생성하므로 메모리 관리에 용이
+    private static SingletonClass instance = null;
+ 
+    private SingletonClass() {
+    }
+    public static SingletonClass getInstance() {
+        if(instance == null)
+            instance = new SingletonClass();
+        return instance;
+    }   
+}
+ 
+
+Singleton class의 사용법
+public class TestSingleton {
+    public static void main(String[] args) {
+        SingletonClass sc1 = SingletonClass.getInstance();
+        sc1.setNum(100);
+        SingletonClass sc2 = SingletonClass.getInstance();
+        System.out.println(sc2.getNum());
+    }
+}
+ 
