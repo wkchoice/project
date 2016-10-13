@@ -5,7 +5,8 @@ package network4;
 	import java.net.Socket;
 	 
 	public class TcpServer4 {
-	    public static void main(String[] args) {
+		public final static int PORT = 1818;
+		public static void main(String[] args) {
 	        /*
 	         * ServerSocket 积己
 	         * Client 楷搬 措扁 -> Socket 积己
@@ -15,7 +16,7 @@ package network4;
 	        ServerSocket serverSocket = null;
 	         
 	        try {
-	            serverSocket = new ServerSocket(1818);
+	            serverSocket = new ServerSocket(PORT);
 	            while(true){
 	                Socket socket = serverSocket.accept();
 	                 

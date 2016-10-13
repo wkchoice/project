@@ -9,6 +9,7 @@ package network4;
 	 
 	public class TcpClient4 {
 	    public static void main(String[] args) {
+	    	
 	        Socket socket = null;
 	 
 	        BufferedReader bufferedReader = null;
