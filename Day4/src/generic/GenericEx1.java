@@ -1,6 +1,6 @@
 package generic;
 
-import java.1.ArrayList;
+import java.util.ArrayList;
 
 public class GenericEx1 {
 	public static void main(String[] args) {

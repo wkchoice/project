@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
-import collection.entity.Student;
-
 //import generic.Displayable;
 
 public class ArrayListEx1 {
