@@ -364,6 +364,80 @@ public class Info1 {
 //	Class c = Class.forName("dto.ProductDTO")
 //	 
 
+//	단축키			설 명
+//	Ctrl+S			Save / Auto 컴파일
+//	Alt + Shift + X	Java Application Run
+//	Alt + Enter		속성 창 보기
+//	Ctrl + 객체클릭	해당 항목을 정의한 곳 이동
+//	Ctrl + .		이전 오류나 경고 
+//	Ctrl + ,		다음 오류나 경고
+//	Ctrl + Space	코드 어시스트 실행
+//	Ctrl + 1		Quick fix (에러 표시 부분/해결책)
+//	Ctrl + T		Quick Hierarchy
+//	Ctrl + i		소스 정리(자동 구문)
+//	Ctrl + O		Quick Outline
+//	Ctrl + D		한 줄 삭제
+//	Ctrl + L		특정 라인으로 이동
+//	Ctrl + N		새 파일/프로젝트 생성
+//	Ctrl + Q		마지막 편집 위치로 감
+//	Ctrl + R		현재 라인 까지 실행
+//	Ctrl + W		닫기
+//	Ctrl + Shift + L	단축키 목록
+//	Ctrl + F		검색
+//	Ctrl + j			뒤쪽으로 점진적 검색
+//	Ctrl + Shift + J	앞쪽으로 점진적 검색
+//	Ctrl + K			해당 선택 문자열 찾음
+//	Ctrl + Shift + K	앞쪽으로 문자열 찾음
+//	Ctrl + H			상세검색(문자,method 등)
+//	Ctrl + Alt + H	상속 구조 보기
+//	Ctrl + Shift + O	import 정리 (삽입, 삭제)
+//	Ctrl + Shift + M	위치한 대상의 필요 Class import
+//	Ctrl + Shift + F	소스 코드 자동 정리
+//	Ctrl + Shift + G	Reference한 곳 찾음
+//	Ctrl + Shift + T	Class 찾기
+//	Alt + Shift + UP	커서기준 토근단위 블록지정
+//	Alt+Shift+ Down		커서기준 토근단위 블록해제
+//	sysout>Ctrl+space	System.out.println()
+//	try>Ctrl +Space		기본 try-catch 문
+//	for>Ctrl+Space		기본 for 문
+//
+//	F1					도움말
+//	F2					설명 풍선창
+//	F3					해당 연결 Class 보여줌
+//	Ctrl + F3			해당 항목을 이동
+//	Alt + <-			돌아오기 (F3 상태)
+//	Alt + ->			앞으로 (F3 상태)
+//	F4					class 선택 후 상속구조
+//	F5					step into
+//	F6					step over(한 줄씩 실행) 
+//	Ctrl + F6			파일 목록 이동(선택)
+//	Ctrl + F7			View 전환
+//	F8					디버깅 계속
+//	Ctrl + F8			perspective 전환
+//	F10					Edit Window 상태
+//	F11					debug 모드 실행
+//	Ctrl + F11			실행
+//	F12	Edit 			창으로 돌아옴
+//	Shift + Alt +알파벳	Refactoring 단축키
+//	Ctrl+Shift +Space	parameter Hits
+//	Alt + /				word completion
+//	Ctrl+Alt+ up/down	한 줄 Duplicate
+//	Alt + Shift + 방향	선택
+//	Ctrl + Shift +D		스크랩북 실행 결과
+//	Ctrl + Shift + I	코드선택 스크랩북 실행
+//	Ctrl + Shift + /	/* */ 주석 걸기
+//	Ctrl + Shift+ \		/* */ 주석 해제
+//	Ctrl + 7			// 주석 걸기 및 해제
+//	Alt + Shift + J		기본 주석 달기
+//	Ctrl + Shift + B	Break point 설정 /해제
+//	Ctrl + 2 + R		Rename(리팩토링)
+//	Alt + Shift + R		Rename
+//	Ctrl + Shift + S	모든 파일 저장 및 컴파일
+//	Alt + Shift +S		MR / Source 창 보임
+//	Ctrl + Shift + F	code format 적용
+//	Alt + UP,Down		현재 줄 위치 이동
+
+
 }
 
 
