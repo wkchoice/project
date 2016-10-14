@@ -17,13 +17,15 @@ public class TcpServer1 {
 	public final static int PORT = 40005;
 	
 	public static void main(String[] args) throws IOException {
-		// 1. ServerSocket 생성.port. 40005
+		// 1. ServerSocket 생성.port. 40005 // 
+		// WK-01 : ServerSocket sss = new ServerSocket(PORT);
 		ServerSocket ss = new ServerSocket();
 		ss.bind(new InetSocketAddress(PORT));
 		
 		System.out.println("Srv> 서버 시작 합니다."+(new Date()));
 		Date curr_now;
 		try {
+			// WK-02 : below 
 			while (true) {
 				Socket socket = ss.accept(); //클라이언트 접속 요청이 있을 때까지 block됨.
 				

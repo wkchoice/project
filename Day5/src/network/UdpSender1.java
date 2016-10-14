@@ -9,7 +9,7 @@ public class UdpSender1 {
 	public static void main(String[] args) throws IOException  {
 		DatagramSocket socket = new DatagramSocket();
 		
-		for (int i=0;i<10;i++) {
+		for (int i=0;i<100;i++) {
 			String msg = "¾È³çÇÏ¼¼¿ä?!? "+ i;
 			byte[] bytes = msg.getBytes("UTF-8");
 			

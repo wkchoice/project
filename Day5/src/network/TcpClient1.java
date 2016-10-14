@@ -29,6 +29,7 @@ public class TcpClient1 {
 		InputStream in = socket.getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		String server_time = reader.readLine();
+		
 		System.out.println("Cli> 서버에서 보낸 시각: "+server_time);
 		
 		OutputStream out = socket.getOutputStream();
