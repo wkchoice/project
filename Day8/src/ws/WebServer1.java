@@ -16,8 +16,9 @@ class WebServer1
 {
 	public static void main(String argv[]) throws Exception
 	{
+		final int port = 80;
 		// 서버소켓을 생성한다. 웹서버는 기본적으로 80번 포트를 사용한다.
-		ServerSocket listenSocket = new ServerSocket(80);
+		ServerSocket listenSocket = new ServerSocket(port);
 		System.out.println("WebServer Socket Created");
 
 		Socket connectionSocket;

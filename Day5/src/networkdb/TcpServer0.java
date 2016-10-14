@@ -1,5 +1,6 @@
 package networkdb;
 
+import java.awt.Transparency;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -10,15 +11,13 @@ public class TcpServer0 {
 	public final static int port = 50005;
 	public static void main(String[] args) throws IOException {
 		ServerSocket ss = null;
+		Socket s = null; 
 		try {
 			ss = new ServerSocket(port);
-			while (true) {
-				Socket s = ss.accept();
-				if (s != null) {
-					Thread t = new Thread(new TcpServerThread0(s));
-					t.setDaemon(true);
-					t.start();
-				}
+			while ((s = ss.accept()) != null) {
+				Thread t = new Thread(new TcpServerThread0(s));
+				t.setDaemon(true);
+				t.start();
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -27,8 +26,6 @@ public class TcpServer0 {
 		if (ss != null) ss.close();
 	}
 }
-
-
 
 
 //server ends up after receiving from client and send the received message to client( just 1 times) TcpServer3
