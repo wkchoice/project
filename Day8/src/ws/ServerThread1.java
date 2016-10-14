@@ -13,10 +13,7 @@ import java.util.StringTokenizer;
 import javax.activation.MimetypesFileTypeMap;
 
 /**
- * <pre>
  * 접속하는 클라이언트와의 개별 처리를 위한 쓰레드 클래스
- * </pre>
- * 
  * @author eye
  * @since 2010.11.15
  */
@@ -26,18 +23,15 @@ public class ServerThread1 extends Thread
 	private static final String DEFAULT_FILE_PATH = "index.html";
 	
 	// 클라이언트와의 접속 소켓
-	private Socket connectionSocket;
+	private Socket s;
 	
 	/**
-	 * <pre>
 	 * 기본 생성자
-	 * </pre>
-	 * 
-	 * @param connectionSocket 클라이언트와의 통신을 위한 소켓
+	 * @param s 클라이언트와의 통신을 위한 소켓
 	 */
-	public ServerThread1(Socket connectionSocket)
+	public ServerThread1(Socket s)
 	{
-		this.connectionSocket = connectionSocket;
+		this.s = s;
 	}
 	
 	/* (non-Javadoc)
@@ -47,17 +41,17 @@ public class ServerThread1 extends Thread
 	public void run()
 	{
 		System.out.println("WebServer Thread Created");
-		BufferedReader inFromClient = null;
+		BufferedReader buffRead = null;
 		DataOutputStream outToClient = null;
 		
 		try
 		{
 			// 클라이언트와 통신을 위한 입/출력 2개의 스트림을 생성한다.
-			inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-			outToClient = new DataOutputStream(connectionSocket.getOutputStream());
+			buffRead = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			outToClient = new DataOutputStream(s.getOutputStream());
 
 			// 클라이언트로의 메시지중 첫번째 줄을 읽어들인다.
-			String requestMessageLine = inFromClient.readLine();
+			String requestMessageLine = buffRead.readLine();
 			
 			// 파싱을 위한 토큰을 생성한다.
 			StringTokenizer tokenizedLine = new StringTokenizer(requestMessageLine);
@@ -130,7 +124,7 @@ public class ServerThread1 extends Thread
 				outToClient.writeBytes("\r\n");
 			}
 			
-			connectionSocket.close();
+			s.close();
 			System.out.println("Connection Closed");
 		}
 		// 예외 처리

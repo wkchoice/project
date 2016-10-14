@@ -53,7 +53,5 @@ public class TcpClient0 {
 			if (printWrite != null) printWrite.close();
 			if (s != null) s.close();
 		}
-
 	}
-	
 }
