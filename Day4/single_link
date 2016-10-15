@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<string.h>
+ 
+//리스트 구조체 선언
+struct List {
+    char strData[11];
+    struct List *nextList;
+};
+ 
+//탐색 알고리즘 함수 선언
+struct List* searchNode(struct List *list, char *x);
+ 
+void main() {
+    //연결형 리스트 생성
+    struct List appleList = { "apple",NULL };
+    struct List BananaList = { "Banana", &appleList };
+    struct List melonList = { "Melon", &BananaList };
+    struct List piList = { "Rassbary", &melonList };
+    struct List nameList = { "신홍기", &piList };
+    struct List *search;
+ 
+    //검색할 이름을 저장할 변수 선언과 값 받기
+    char strTemp[11];
+    
+    printf_s("검색할 것을 입력하세요 : ");
+    scanf("%s", strTemp);
+    //search에 searchNode함수를 실행한 결과를 저장
+    search = searchNode(&nameList, strTemp);
+ 
+    //탐색알고리즘을 통해 찾은경우와 못찾은 경우를 출력
+    if (search != NULL)
+    {
+        printf_s("%s를 리스트에서 찾았습니다.\n", strTemp);
+    }
+    else {
+        printf_s("%s를 리스트에서 찾지 못했습니다.\n", strTemp);
+    }
+    return;
+}
+ 
+//리스트 L에서 x 노드 탐색 알고리즘
+struct List* searchNode(struct List *list, char *x) {
+    //시작주소를 temp에 저장;
+    struct List *temp = list;
+    //마지막 노드일 때 까지 반복문 돌리는 것
+    while (temp != NULL)
+    {
+        //temp의 현재 노드에 저장된 strData와 검색하려는 x노드가 같은지 비교
+        if (!strcmp(temp->strData, x)) {
+            //맞을경우 temp반환
+            return temp;
+        }
+        //다음 노드로 이동
+        temp = temp -> nextList;
+    }
+    //찾지 못하여 NULL값 반환
+    return temp;
+}
+ 
