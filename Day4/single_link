@@ -1,3 +1,4 @@
+-------- Single link ---------------------------------------------------------------------
 #include<stdio.h>
 #include<string.h>
  
@@ -55,5 +56,75 @@ struct List* searchNode(struct List *list, char *x) {
     }
     //찾지 못하여 NULL값 반환
     return temp;
+}
+ 
+-------- double link ---------------------------------------------------------------------
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+ 
+//리스트 구조체 선언
+struct Dnode {
+    struct Dnode *llink;
+    char data[5];
+    struct Dnode *rlink;
+};
+struct DoubleList {
+    struct Dnode *dNode;
+};
+ 
+struct DoubleList DL = { NULL };
+ 
+void deleteNode(DoubleList DL, Dnode *old) 
+{
+    old->llink->rlink = old->rlink;
+    old->rlink->llink = old->llink;
+    free(old);
+}
+ 
+ 
+ 
+void main() {
+    struct Dnode *dn, *dn1, *dn2;
+    dn = (Dnode*)malloc(sizeof(Dnode));
+    dn1 = (Dnode*)malloc(sizeof(Dnode));
+    dn2 = (Dnode*)malloc(sizeof(Dnode));
+    strcpy(dn->data, "apple");
+    strcpy(dn1->data, "banana");
+    strcpy(dn2->data, "orange");
+ 
+    dn->llink = NULL;
+    dn->rlink = dn1;
+ 
+    dn1->llink = dn;
+    dn1->rlink = dn2;
+ 
+    dn2->llink = dn1;
+    dn2->rlink = NULL;
+    DL.dNode = dn;
+ 
+    printf("------Before------\n");
+    struct Dnode *Temp = DL.dNode;
+    int cnt = 0;
+    while (Temp != NULL)
+    {
+        printf("%d : %s\n", cnt++, Temp->data);
+        Temp = Temp->rlink;
+    }
+ 
+ 
+    deleteNode(DL, dn1);
+ 
+ 
+    printf("------after------\n");
+    Temp = DL.dNode;
+    cnt = 0;
+    while (Temp != NULL)
+    {
+        printf("%d : %s\n", cnt++, Temp->data);
+        Temp = Temp->rlink;
+    }
+ 
+    return;
 }
  
