@@ -14,6 +14,8 @@ public class DBJob0 {
 				// SQL 전송
 				// 1. Statement사용시 - server에서 
 				//String sql = "SELECT * FROM employees WHERE first_name = '" + keyword +"'"; // Dangerous String or Usage
+				// String sql = "DELETE FROM employees WHERE employee_id = 110";
+				// String sql1 = "UPDATE employees SET salary = salary * 1.1 WHERE department_id = 90";
 				Statement stmt = con.createStatement();
 				int affectedRow = 0; ResultSet rs = null;
 			
