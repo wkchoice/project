@@ -76,12 +76,13 @@ public class TcpServerThread0 implements Runnable {
 			if (printWrite != null)
 				printWrite.close();
 			
-			if (s != null)
+			if (s != null) {
 				try {
 					s.close();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+			}
 		}
 	}
 }
