@@ -11,7 +11,7 @@ public class FileServer0 {
 		ServerSocket serverSocket = null;
 
 		try {
-			serverSocket = new ServerSocket(1818);
+			serverSocket = new ServerSocket(50005);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

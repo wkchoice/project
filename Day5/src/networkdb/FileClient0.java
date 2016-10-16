@@ -15,7 +15,7 @@ public class FileClient0 {
 		FileOutputStream fileOutputStream = null;
 
 		try {
-			socket = new Socket("127.0.0.1", 1818);
+			socket = new Socket("127.0.0.1", 50005);
 			InputStream inputStream = socket.getInputStream();
 
 			fileOutputStream = new FileOutputStream("./download.jpg");

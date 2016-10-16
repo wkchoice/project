@@ -1,4 +1,3 @@
-
 //----------------------------------------------------------- //
 public class FileServer0 {
 	public final static int port = 50005;
@@ -72,10 +71,10 @@ PrintWriter printWrite = null;
 try {
 	printWrite = new PrintWriter(new FileWriter("./memo.txt"));
 	while (true) {
-		String input = buffRead.readLine();
-		if(input == null) break;
-		if (input.equals("/q"))	break;
-		printWrite.println(input);
+		String inMsg = buffRead.readLine();
+		if(inMsg == null) break;
+		if (inMsg.equals("/q"))	break;
+		printWrite.println(inMsg);
 	}
 	printWrite.flush();
 } catch (IOException e) { }

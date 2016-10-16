@@ -12,14 +12,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class TcpServer0 { // 1.
+public class TcpServer { // 1.
 	public final static int port = 50005;
 	public static void main(String[] args) throws IOException {
 		ServerSocket ss = null;	Socket s = null; 
 		try {
 			ss = new ServerSocket(port);
 			while ((s = ss.accept()) != null) {
-				Thread t = new Thread(new TcpServerThread0(s));
+				Thread t = new Thread(new TcpServerThread(s));
 				t.setDaemon(true);
 				t.start();
 			}
@@ -27,9 +27,9 @@ public class TcpServer0 { // 1.
 	}
 }
 
-public class TcpServerThread0 implements Runnable { // 2.
+public class TcpServerThread implements Runnable { // 2.
 	private Socket s;
-	public TcpServerThread0(Socket s) { // constructor
+	public TcpServerThread(Socket s) { // constructor
 		this.s = s;
 	}
 	@Override
@@ -41,16 +41,16 @@ public class TcpServerThread0 implements Runnable { // 2.
 				buffRead = new BufferedReader(new InputStreamReader(s.getInputStream()));
 				String inMsg = buffRead.readLine();
 				if (inMsg == null) break;
-				String outMsg = DBJob0.SQLInterpret(inMsg);
+				String outMsg = DBJob.SQLQuery(inMsg);
 				printWrite = new PrintWriter(s.getOutputStream(), true);
 				printWrite.println(outMsg);
-				printWrite.flush();
 			}
+			printWrite.flush();
 		} catch (Exception e) {	}
 	}
 }
 
-public class TcpClient0 { // 3.
+public class TcpClient { // 3.
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		final int port = 50005;
 		Socket s = null;
@@ -75,14 +75,12 @@ public class TcpClient0 { // 3.
 	}
 }
 
-
-public class DBUtil0 { // 4
+public class DBUtil { // 4
 	final static String url = "jdbc:oracle:thin:@127.0.0.1:1521";
 	final static String id  = "hr";
 	final static String password = "1234";
 
 	private static Connection con;
-
 	static {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 	}
@@ -94,38 +92,35 @@ public class DBUtil0 { // 4
 	}
 
 	public static void Close() {
-		if (con != null) {	con.close();}
+		con.close();
 	}
-
 	public static void Close(Statement stmt) {
-		if (stmt != null) {	stmt.close();}
+		stmt.close();
 	}
-
 	public static void Close(Statement stmt, ResultSet rs) {
-		if (rs != null) {rs.close();}
-		Close(stmt);
+		rs.close();	Close(stmt);
 	}
 }
 
-public class DBJob0 { // 5.
-	public static String SQLInterpret(String sql) throws Exception {
-			// DB에 연결
-		    String rsMsg;
-			Connection con = DBUtil0.getConnection(); // url, username, passwd
-			con.setAutoCommit(false); // Transaction처리 시작
-			// SQL 전송
-			Statement stmt = con.createStatement();
-			int affectedRow = 0; ResultSet rs = null;
-			if (sql.contains("UPDATE")) affectedRow = stmt.executeUpdate(sql);
-			else rs = stmt.executeQuery(sql); // SELECT
-			try {
-				while (rs != null && rs.next()) {
-					rsMsg += rs.getString("employee_id");
-				}
-				con.commit(); 
-			} catch (Exception e) {	}
-			DBUtil0.Close(stmt, rs);
-			DBUtil0.Close();
-			return rsMsg;
+public class DBJob { // 5.
+	public static String SQLQuery(String sql) throws Exception {
+		// DB에 연결
+		String rsMsg;
+		Connection con = DBUtil.getConnection(); // url, username, passwd
+		con.setAutoCommit(false); // Transaction처리 시작
+		// SQL 전송
+		Statement stmt = con.createStatement();
+		int affectedRow = 0; ResultSet rs = null;
+		if (sql.contains("UPDATE")) affectedRow = stmt.executeUpdate(sql);
+		else rs = stmt.executeQuery(sql); // SELECT
+		try {
+			while (rs != null && rs.next()) {
+				rsMsg += rs.getString("employee_id");
+			}
+			con.commit(); 
+		} catch (Exception e) {	}
+		DBUtil.Close(stmt, rs);
+		DBUtil.Close();
+		return rsMsg;
 	}
 }
