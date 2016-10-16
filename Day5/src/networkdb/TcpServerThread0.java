@@ -29,7 +29,6 @@ public class TcpServerThread0 implements Runnable {
 		try {
 			while(true) {
 				buffRead = new BufferedReader(new InputStreamReader(s.getInputStream()));
-				printWrite = new PrintWriter(s.getOutputStream(), true);
 				
 				String inMsg = buffRead.readLine();
 				if (inMsg == null) break;
@@ -42,13 +41,15 @@ public class TcpServerThread0 implements Runnable {
 				String outMsg = DBJob0.SQLInterpret(inMsg);
 
 				// Tx-usage-1 Tx date and result of DBJob to client
-//				printWrite.println(inMsg+" + "+outMsg);
+				printWrite = new PrintWriter(s.getOutputStream(), true);
+				printWrite.println(inMsg+" + "+outMsg);
+				printWrite.flush();
 				
 				// Tx-usage-2 Tx date and result of DBJob to client
-				buffWrite = new BufferedWriter( new OutputStreamWriter(s.getOutputStream()));
-				//buffWrite.write(curr_now+"\r\n");
-				buffWrite.write(inMsg+" + "+outMsg+"\r\n");
-				buffWrite.flush();
+//				buffWrite = new BufferedWriter( new OutputStreamWriter(s.getOutputStream()));
+//				//buffWrite.write(curr_now+"\r\n");
+//				buffWrite.write(inMsg+" + "+outMsg+"\r\n");
+//				buffWrite.flush();
 				
 				System.out.println("srv> Tx : "+inMsg+" + "+outMsg+"="+outMsg.length());
 				

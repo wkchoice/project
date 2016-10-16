@@ -15,7 +15,12 @@ public class DBJob0 {
 				// 1. Statement사용시 - server에서 
 				//String sql = "SELECT * FROM employees WHERE first_name = '" + keyword +"'"; // Dangerous String or Usage
 				Statement stmt = con.createStatement();
-				ResultSet rs = stmt.executeQuery(sql);
+				int affectedRow = 0; ResultSet rs = null;
+			
+				if (sql.contains("UPDATE") || sql.contains("INSERT") || sql.contains("DELETE") ) 
+					affectedRow = stmt.executeUpdate(sql); // INSERT,DELETE, UPDATE나 DDL을 실행
+				else
+					rs = stmt.executeQuery(sql); // SELECT
 
 //				//2. PreparedStatement 사용시.(추천 방법) - client에서
 //				String sql = "SELECT * FROM employees WHERE first_name = ?";
@@ -27,7 +32,7 @@ public class DBJob0 {
 								
 				try {
 					//결과집합 처리
-					while (rs.next()) {
+					while (rs != null && rs.next()) {
 						// 결과 행에 대한 처리
 						// rs.getString(1) // First coulumn of result of running Queqry in oracle is getted.
 						// System.out.println(rs.getRow()+" : "+rs.getString("employee_id")+", "+rs.getString("first_name")+", "+rs.getString("last_name")); // column 이름을 직접 사용.
