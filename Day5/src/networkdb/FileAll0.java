@@ -11,7 +11,7 @@ public class FileServer0 {
 		OutputStream outputStreamWriter = null;
 		Socket s = null;
 		try {
-			s = serverSocket.accept();
+			s = ss.accept();
 			OutputStream outputStream = s.getOutputStream();
 			fileInputStream = new FileInputStream("../desert.jpg");
 			byte[] dataBuff = new byte[10000];
