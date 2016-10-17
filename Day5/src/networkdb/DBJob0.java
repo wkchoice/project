@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DBJob0 {
-		public static String SQLInterpret(String sql) throws Exception {
+		public static String SQLQuery(String sql) throws Exception {
 				// DB¿¡ ¿¬°á
 			    String sql_rs = "";
 				Connection con = DBUtil0.getConnection(); // url, username, passwd

@@ -38,7 +38,7 @@ public class TcpServerThread0 implements Runnable {
 //				Date curr_now = new Date();
 				// case.1 String
 				// String outMsg = new String("지금 날짜는 "+curr_now.toString());
-				String outMsg = DBJob0.SQLInterpret(inMsg);
+				String outMsg = DBJob0.SQLQuery(inMsg);
 
 				// Tx-usage-1 Tx date and result of DBJob to client
 				printWrite = new PrintWriter(s.getOutputStream(), true);
